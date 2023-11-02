@@ -1,0 +1,9 @@
+version: '1.0'
+
+services:
+  motoriep:
+    build: .
+    image: chc:0.2
+    volumes:
+      - ./testFiles:/files
+    tty: true
