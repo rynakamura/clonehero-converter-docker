@@ -3,7 +3,11 @@ version: '1.0'
 services:
   motoriep:
     build: .
-    image: chc:0.2
+    image: chc:0.5
+    ports:
+      - 3999:3000
     volumes:
       - ./testFiles:/files
+      - ./converter:/converter
     tty: true
+    command: sh -c "cd /converter && npm i && npm run prod"

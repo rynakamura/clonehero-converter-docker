@@ -1,0 +1,1 @@
+python3 easygen.py /files/expert --batch --custom_note_multiplier 2 --in_place

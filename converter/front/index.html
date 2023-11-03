@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clone Hero Converter</title>
+</head>
+
+<body>
+    <form action="/videos" method="post">
+        <button id="video" type="submit">Converter</button>
+    </form>
+    <p>Status: <span id="status"></span></p>
+
+    <form action="/copy" method="post">
+        <button id="copy" type="submit">Transferir</button>
+    </form>
+</body>
+
+</html>
+
+<script>
+    let isRunning = true
+
+    document.getElementById("video").addEventListener('click', (e) => {
+        console.log('click')
+        isRunning = true
+
+        disableButton()
+
+    })
+    var disableButton = () => {
+        console.log('loop', isRunning)
+
+        setTimeout(function () {
+            fetch("/status").then(T => T.json()).then(resp => isRunning = resp).then(() => {
+                if (isRunning) {
+                    document.getElementById("video").setAttribute("disabled", true)
+                    document.getElementById("status").textContent = "Trabalhando"
+
+                    disableButton()
+                    
+                } else {
+                    document.getElementById("video").removeAttribute("disabled")
+                    document.getElementById("status").textContent = "Concluído"
+
+                }
+            })
+        }, 1000)
+    }
+    disableButton()
+
+</script>

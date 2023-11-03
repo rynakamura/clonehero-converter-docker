@@ -1,0 +1,1 @@
+cp -r /files/expert/* /files/clonehero && rm -r /files/expert/*
