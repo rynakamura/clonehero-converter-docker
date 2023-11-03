@@ -7,7 +7,7 @@ services:
     ports:
       - 3999:3000
     volumes:
-      - ./testFiles:/files
-      - ./converter:/converter
+      - /mnt/hdd/documents:/files
+      - /home/rynakamura/docker-chc/converter:/converter
     tty: true
     command: sh -c "cd /converter && npm i && npm run prod"
