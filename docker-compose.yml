@@ -11,3 +11,4 @@ services:
       - /home/rynakamura/docker-chc/converter:/converter
     tty: true
     command: sh -c "cd /converter && npm i && npm run prod"
+    restart: unless-stopped
