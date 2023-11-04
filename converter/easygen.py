@@ -242,7 +242,7 @@ class Parser():
                 continue
             key, value = [_line__part.strip() for _line__part in line.split('=')]
             if key == 'Resolution':
-                self.resolution = int(value)
+                self.resolution = int(re.findall(r'\d+', value)[0])
 
 
     def parse_file(self, lines):
