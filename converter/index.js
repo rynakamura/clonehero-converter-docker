@@ -26,7 +26,7 @@ app.post("/copy", (req, res) => {
 });
 
 app.post("/videos", (req, res) => {
-  isRunning = isEasyRunning = isConvertRunning = true;
+  isEasyRunning = isConvertRunning = true;
   console.log("convertendo dificuldade ...");
   exec("sh /converter/easy.sh", (error, stdout, stderr) => {
     isEasyRunning = false;
@@ -44,7 +44,7 @@ app.post("/videos", (req, res) => {
     console.log("concluído vídeo");
     console.debug("log", stdout);
     console.debug("log erro", stderr);
-    isRunning = false;
+    
     if (error !== null) {
       console.log(`exec error: ${error}`);
     }
