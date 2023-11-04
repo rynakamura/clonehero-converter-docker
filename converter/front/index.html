@@ -26,7 +26,7 @@
     document.getElementById("video").addEventListener('click', (e) => {
         console.log('click')
         isRunning = true
-
+        document.getElementById("video").setAttribute("disabled", true)
         disableButton()
 
     })
