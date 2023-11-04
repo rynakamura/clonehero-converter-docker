@@ -26,7 +26,8 @@ app.post("/copy", (req, res) => {
 });
 
 app.post("/videos", (req, res) => {
-  isEasyRunning = isConvertRunning = true;
+  isEasyRunning =true
+  isConvertRunning = true;
   console.log("convertendo dificuldade ...");
   exec("sh /converter/easy.sh", (error, stdout, stderr) => {
     isEasyRunning = false;
